@@ -91,7 +91,11 @@ public class HttpServer {
         if (path.startsWith("/calculadora?operation")){
             String op = path.substring(23,26);
             String num = path.substring(34);
-            return operations(op,num);
+            System.out.println(operations(op,num));
+            return "HTTP/1.1 200 OK \r\n"
+                    + "Content-Type: "+type+"\r\n"
+                    + "\r\n"
+                    + operations(op,num);
         }
         else {
             Path file = Paths.get("./www" + path);
@@ -119,9 +123,9 @@ public class HttpServer {
         String num = "";
         String den = "";
         System.out.println(op);
-        if (input.contains("π")){
+        if (input.contains("pi")){
             pi = Math.PI;
-            input = input.substring(0,input.indexOf("π"))+input.substring(input.indexOf("π")+1);
+            input = "";
         }
         if(input.contains("/")){
             num = input.substring(0,input.indexOf("/"));
@@ -160,7 +164,7 @@ public class HttpServer {
                 break;
         }
         assert res != null;
-        return res.toString();
+        return "{ response: \""+res.toString()+"\"}";
     }
 }
 
