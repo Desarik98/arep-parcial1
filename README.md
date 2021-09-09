@@ -25,6 +25,7 @@ java -cp java -cp TrigCalculator-1.0-SNAPSHOT.jar edu.escuelaing.arep.HttpServer
 ```
 
 Diríjase a la siguiente url: http://localhost:5000/calculadora.html y podrá observar lo siguiente
+
 ![HomePage](Images/homePage.png)
 
 En el seleccionador podrá escoger entre las siguientes operaciones trigonométricas:
@@ -33,16 +34,20 @@ En el seleccionador podrá escoger entre las siguientes operaciones trigonométr
 - tan: tangente
 
 En el input podrá colocar el número que desee en radianes, para expresar el número PI tendrá que escribir "pi", para obtener la respuesta le dará a enter
+
 ![Response](Images/response.png)
 
 Para observar su funcionamiento diríjase al siguiente link de heroku https://trigonometricarep.herokuapp.com/calculadora.html
+
 ![HomePageHeroku](Images/herokuHomePage.png)
+
 En el seleccionador podrá escoger entre las siguientes operaciones trigonométricas:
 - sin: seno
 - cos: coseno
 - tan: tangente
 
 - En el input podrá colocar el número que desee en radianes, para expresar el número PI tendrá que escribir "pi", para obtener la respuesta le dará a enter
+- 
 ![ResponseHeroku](Images/herokuResponse.png)
 
 ## Autor
