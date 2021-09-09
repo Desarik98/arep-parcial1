@@ -91,7 +91,7 @@ public class HttpServer {
         if (path.startsWith("/calculadora?operation")){
             String op = path.substring(23,26);
             String num = path.substring(34);
-
+            return operations(op,num);
         }
         else {
             Path file = Paths.get("./www" + path);
@@ -111,56 +111,56 @@ public class HttpServer {
                     + "\r\n"
                     + outmsg;
         }
+    }
 
-        public static String operations(String op,String input){
-            Double res = null;
-            double pi = 1;
-            String num = "";
-            String den = "";
-            System.out.println(op);
-            if (input.contains("π")){
-                pi = Math.PI;
-                input = input.substring(0,input.indexOf("π"))+input.substring(input.indexOf("π")+1);
-            }
-            if(input.contains("/")){
-                num = input.substring(0,input.indexOf("/"));
-                den = input.substring(input.indexOf("/")+1);
-                if(num.length() == 0){
-                    num = "1";
-                }
-                if(den.length() == 0){
-                    den = "1";
-                }
-            }
-            else {
-                den = "1";
-                if (input.length()==0){
-                    num = "1";
-                }else {
-                    num = input;
-                }
-            }
-            double r = Integer.parseInt(num)*pi/Integer.parseInt(den);
-            if(op == null){
-                op = "cos";
-            }
-            switch (op){
-                case "sin":
-                    System.out.println("Seno");
-                    res = Math.sin(r);
-                    break;
-                case "cos":
-                    System.out.println("Coseno");
-                    res = Math.cos(r);
-                    break;
-                case "tan":
-                    System.out.println("Tangente");
-                    res = Math.tan(r);
-                    break;
-            }
-            assert res != null;
-            return res.toString();
+    public static String operations(String op,String input){
+        Double res = null;
+        double pi = 1;
+        String num = "";
+        String den = "";
+        System.out.println(op);
+        if (input.contains("π")){
+            pi = Math.PI;
+            input = input.substring(0,input.indexOf("π"))+input.substring(input.indexOf("π")+1);
         }
+        if(input.contains("/")){
+            num = input.substring(0,input.indexOf("/"));
+            den = input.substring(input.indexOf("/")+1);
+            if(num.length() == 0){
+                num = "1";
+            }
+            if(den.length() == 0){
+                den = "1";
+            }
+        }
+        else {
+            den = "1";
+            if (input.length()==0){
+                num = "1";
+            }else {
+                num = input;
+            }
+        }
+        double r = Integer.parseInt(num)*pi/Integer.parseInt(den);
+        if(op == null){
+            op = "cos";
+        }
+        switch (op){
+            case "sin":
+                System.out.println("Seno");
+                res = Math.sin(r);
+                break;
+            case "cos":
+                System.out.println("Coseno");
+                res = Math.cos(r);
+                break;
+            case "tan":
+                System.out.println("Tangente");
+                res = Math.tan(r);
+                break;
+        }
+        assert res != null;
+        return res.toString();
     }
 }
 
