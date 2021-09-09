@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
-    <form action="calculadora.html" method="get">
-        <select id="operation" required>
-            <option value="sin">sin</option>
-            <option value="cos">cos</option>
-            <option value="tan">tan</option>
-        </select>
-        <input id="number" type="number" required/>
-    </form>
-    <script>
-        const result = () =>{
-            fetch(`http://localhost:35000/${document.getElementById(operation).value}?number=${document.getElementById(number)}`
-            .then(res => res.json()))
-        }
-    </script>
+<form action="calculadora" method="get">
+    <select id="operation" name="operation">
+        <option value="sin">
+            sin
+        </option>
+        <option value="cos">
+            cos
+        </option>
+        <option value="tan">
+            tan
+        </option>
+    </select>
+    <input id="val" name="number">
+
+
+</form>
+<script>
+    const submiting = ( ) =>{
+        fetch(`http://localhost:35000/${document.getElementById(operation).value}?number="${document.getElementById(val)}"&operation="${document.getElementById(operation)}"`)
+            .then(response=>response.json())
+
+
+    }
+</script>
 </body>
 </html>
